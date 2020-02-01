@@ -1,5 +1,5 @@
 {
-  "name": "swoft/redislock",
+  "name": "swoft-redislock",
   "type": "library",
   "keywords": [
     "php",
@@ -14,7 +14,7 @@
     "classmap": [
     ],
     "psr-4": {
-      "Swoft\\RedisLock\\": "src/"
+      "MSwoft\\RedisLock\\": "src/"
     },
     "files": [
     ]

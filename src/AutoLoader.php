@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 
-namespace Swoft\RedisLock;
+namespace MSwoft\RedisLock;
 
 
 use function bean;
