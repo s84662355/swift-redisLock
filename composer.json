@@ -1,0 +1,22 @@
+{
+  "name": "swoft/redislock",
+  "type": "library",
+  "keywords": [
+    "php",
+    "swoole",
+    "swoft",
+    "redis"
+  ],
+  "require": {
+    "swoft/redis"
+  },
+  "autoload": {
+    "classmap": [
+    ],
+    "psr-4": {
+      "Swoft\\RedisLock\\": "src/"
+    },
+    "files": [
+    ]
+  }
+}
