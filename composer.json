@@ -8,7 +8,7 @@
     "redis"
   ],
   "require": {
-    "swoft/redis"
+    "swoft/redis": "~2.0.0"
   },
   "autoload": {
     "classmap": [
