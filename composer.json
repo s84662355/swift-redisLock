@@ -1,10 +1,8 @@
 {
-  "name": "RLock",
+  "name": "chenjiahao/swoftlock",
   "type": "library",
   "keywords": [
     "php",
-    "swoole",
-    "swoft",
     "redis"
   ],
   "require": {
