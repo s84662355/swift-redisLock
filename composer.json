@@ -1,5 +1,5 @@
 {
-  "name": "swoftlock",
+  "name": "RLock",
   "type": "library",
   "keywords": [
     "php",
