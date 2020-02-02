@@ -3,7 +3,7 @@
 
 namespace MSwoft\RedisLock;
 
-
+use Swoft\Bean\Annotation\Mapping\Bean;
 use function bean;
 use ReflectionException;
 use Swoft\Bean\Exception\ContainerException;
@@ -44,7 +44,7 @@ class AutoLoader extends SwoftComponent
         return [
             'lock-control'      => [
                 'class'  => LockControl::class,
-                [\bean('redis.pool')]
+                [\bean('redis.pool')],
                 'option' => [
                     'alias' => 'lock-control' ,
                     'serializer' => Bean::REQUEST

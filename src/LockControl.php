@@ -55,6 +55,7 @@ class LockControl
     }
 
  
+
     public function  RedisLock()
     {
         return  $this->redisLock;
