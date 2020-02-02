@@ -7,7 +7,7 @@
   ],
   "require": {
     "swoft/redis": "*",
-    "chenjiahao/suospace": "*",
+    "chenjiahao/suospace": "*"
   },
   "autoload": {
     "classmap": [
