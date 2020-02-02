@@ -50,15 +50,11 @@ class LockControl
     public function __construct(Pool $redis)
     {
         $this->redis = $redis;
-        $this->init();
-    }
-
-    private function init()
-    {
         $this->redisLock = new RedisLock($this->redis);
         $this->redisNewLock = new RedisNewLock($this->redis);
     }
 
+ 
     public function  RedisLock()
     {
         return  $this->redisLock;

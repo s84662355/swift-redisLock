@@ -6,7 +6,8 @@
     "redis"
   ],
   "require": {
-    "swoft/redis": "~2.0.0"
+    "swoft/redis": "*",
+    "chenjiahao/suospace": "*",
   },
   "autoload": {
     "classmap": [

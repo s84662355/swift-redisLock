@@ -44,6 +44,7 @@ class AutoLoader extends SwoftComponent
         return [
             'lock-control'      => [
                 'class'  => LockControl::class,
+                [\bean('redis.pool')]
                 'option' => [
                     'alias' => 'lock-control' ,
                     'serializer' => Bean::REQUEST
