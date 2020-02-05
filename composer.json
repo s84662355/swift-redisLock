@@ -7,7 +7,7 @@
     "lock"
   ],
   "require": {
-    "swoft/redis": "*",
+    "swoft/redis": "*" 
   },
   "autoload": {
     "classmap": [
