@@ -1,5 +1,6 @@
 {
   "name": "chenjiahao/swoftlock",
+  "description": "swoft redis 分布式锁",
   "type": "library",
   "keywords": [
     "php",
