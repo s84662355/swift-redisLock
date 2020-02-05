@@ -10,8 +10,6 @@ use ReflectionException;
 use Swoft\Bean\Exception\ContainerException;
 use Swoft\SwoftComponent;
 use Swoft\Redis\Pool;
-use LockSpace\RedisLock;
-use LockSpace\RedisNewLock;
 use Swoft\Redis\Redis as SwoftRedis;
 
 /**
@@ -52,7 +50,7 @@ class LockControl
     public function __construct( )
     {   
         $connection = SwoftRedis::connection('redis.pool');
-        $this->redis = $redis;
+        $this->redis =  $connection;
         $this->redisLock = new RedisLock($connection);
         $this->redisNewLock = new RedisNewLock($connection);
     }
