@@ -1,14 +1,14 @@
 <?php declare(strict_types=1);
 
 
-namespace MSwoft\RedisLock;
+namespace  cjhRedisLock;
 
 use Swoft\Bean\Annotation\Mapping\Bean;
 use function bean;
 use ReflectionException;
 use Swoft\Bean\Exception\ContainerException;
 use Swoft\SwoftComponent;
-
+use Swoft\Redis\Redis as SwoftRedis;
 /**
  * Class AutoLoader
  *
@@ -44,7 +44,7 @@ class AutoLoader extends SwoftComponent
         return [
             'lock-control'      => [
                 'class'  => LockControl::class,
-                [\bean('redis.pool')],
+                'pool' => 'redis.pool',
                 '__option' => [
                 
                  'scope' => Bean::REQUEST

@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
 
 
-namespace MSwoft\RedisLock;
+namespace  cjhRedisLock;
+
 
 
 use function bean;
@@ -11,6 +12,7 @@ use Swoft\SwoftComponent;
 use Swoft\Redis\Pool;
 use LockSpace\RedisLock;
 use LockSpace\RedisNewLock;
+use Swoft\Redis\Redis as SwoftRedis;
 
 /**
  * Class LockControl
@@ -23,9 +25,9 @@ class LockControl
     /**
      *  
      *
-     * @var Pool
+     * @var string
      */
-    private $redis;
+    private $pool;
 
     /**
      *  
@@ -45,13 +47,14 @@ class LockControl
     /**
      * LockControl constructor.
      *
-     * @param Pool $redis
+     * @param SwoftRedis $redis
      */
-    public function __construct(Pool $redis)
-    {
+    public function __construct( )
+    {   
+        $connection = SwoftRedis::connection('redis.pool');
         $this->redis = $redis;
-        $this->redisLock = new RedisLock($this->redis);
-        $this->redisNewLock = new RedisNewLock($this->redis);
+        $this->redisLock = new RedisLock($connection);
+        $this->redisNewLock = new RedisNewLock($connection);
     }
 
  

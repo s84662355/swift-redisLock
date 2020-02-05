@@ -3,17 +3,17 @@
   "type": "library",
   "keywords": [
     "php",
-    "redis"
+    "redis",
+    "lock"
   ],
   "require": {
     "swoft/redis": "*",
-    "chenjiahao/suospace": "*"
   },
   "autoload": {
     "classmap": [
     ],
     "psr-4": {
-      "MSwoft\\RedisLock\\": "src/"
+      "cjhRedisLock\\": "src/"
     },
     "files": [
     ]

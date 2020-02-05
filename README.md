@@ -47,7 +47,7 @@ $obj->RedisNewLock()->unlock($key)
 
             'lock-control'      => [
                 'class'  => LockControl::class,
-                [\bean('redis.pool')],
+                'pool' => 'redis.pool', //对应的redis连接池
                 '__option' => [
                 
                  'scope' => Bean::REQUEST
