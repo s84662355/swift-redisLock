@@ -51,8 +51,8 @@ class LockControl
     {   
         $connection = SwoftRedis::connection('redis.pool');
         $this->redis =  $connection;
-        $this->redisLock = new RedisLock($connection);
-        $this->redisNewLock = new RedisNewLock($connection);
+        $this->redisLock =  RedisLock::new([$connection]);
+        $this->redisNewLock =   RedisNewLock::new([$connection]);
     }
 
  

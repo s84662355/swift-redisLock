@@ -1,15 +1,30 @@
 <?php
 namespace  cjhRedisLock;
 use Swoole\Coroutine as co;
+use Swoft\Bean\Annotation\Mapping\Bean;
+use Swoft\Bean\Concern\PrototypeTrait;
+ 
+ 
 
+/**
+ * Class RedisNewLock
+ *
+ * @Bean(scope=Bean::PROTOTYPE)
+ *
+ * @since 2.0
+ */
 class RedisNewLock{
+
+    use PrototypeTrait;
 
     public const SHARE = 0;
     public const UPDATE = 1;
     
-    private  $redisClient = null;
  
-    private  $client_number;
+    
+    public  $redisClient = null;
+
+    public $client_number ;
 
     private     $script = <<<script
     redis.replicate_commands()
@@ -230,13 +245,25 @@ script;
     return 0
 script;
 
-  public function __construct(  $redisClient )
-  {
-        $this->redisClient =  $redisClient ;
+ 
+    /**
+     *
+     * @param array $items
+     *
+     * @return static
+     */
+    public static function new(array $items = []): self
+    {
+        $self        = self::__instance();
+        [$redisClient] = $items;
+        $self->redisClient =  $redisClient ;
+        $self->client_number = Random::str( 10 ).microtime();
+        return $self;
+    }
 
-        $this->client_number = Random::str( 10 ).microtime();
 
-  }
+
+
 
   private function lock( $key,$expire,$type = RedisNewLock::SHARE ,$wait = 0)
   {

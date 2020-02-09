@@ -1,12 +1,22 @@
 <?php
 namespace  cjhRedisLock;
 use Swoole\Coroutine as co;
-
+use Swoft\Bean\Annotation\Mapping\Bean;
+use Swoft\Bean\Concern\PrototypeTrait;
+/**
+ * Class  RedisLock
+ *
+ * @Bean(scope=Bean::PROTOTYPE)
+ *
+ * @since 2.0
+ */
 class RedisLock{
-    
-    private  $redisClient = null;
 
-    private $client_number ;
+    use PrototypeTrait;
+    
+    public  $redisClient = null;
+
+    public $client_number ;
 
     private     $script = <<<script
     redis.replicate_commands();
@@ -117,14 +127,27 @@ script;
      
 script;
 
-  public function __construct(  $redisClient )
-  {
-        $this->redisClient =  $redisClient ;
-        $this->client_number = Random::str( 10 ).microtime();
-        ///CLIENT SETNAME hello-world-connection
+    /**
+     *
+     * @param array $items
+     *
+     * @return static
+     */
+    public static function new(array $items = []): self
+    {
+        $self        = self::__instance();
+        [$redisClient] = $items;
+        $self->redisClient =  $redisClient ;
+        $self->client_number = Random::str( 10 ).microtime();
+        return $self;
+    }
 
-        //$this->redisClient->executeRaw(['CLIENT SETNAME',$this->client_number]);
-  }
+
+
+
+
+
+
 
   //wait 单位是秒
   public function lock( $key,$expire,$wait = 0)
