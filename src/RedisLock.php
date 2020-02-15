@@ -169,7 +169,7 @@ script;
                       }
                    
                        $wait  =  $wait - 1000 * 50;
-                       co::usleep(1000 * 50); 
+                       usleep(1000 * 50); 
               }
            }
 

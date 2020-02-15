@@ -3,7 +3,7 @@ composer require chenjiahao/swoftlock
 redis实现的分布式锁
 
 
-
+   
 $tid = Co::tid();
 $obj = BeanFactory::getRequestBean('lock-control', (string)$tid);
 
