@@ -175,7 +175,7 @@ script;
            {
               while($wait>0){
                  
-                 $script_Arr = array('EVAL', $this->script, 1, $key, $expire);
+            $res = $this->redisClient->eval( $this->script,[$key,$expire,$this->client_number],1);
                  if($res>0) {
                          return $res;
                       }
