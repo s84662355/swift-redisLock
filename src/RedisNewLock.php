@@ -287,8 +287,9 @@ script;
                        return $res;
                     } 
 
-                             $wait  =  $wait - 1000 * 50;
-                              usleep(1000 * 50); 
+                            $wait  =  $wait - 1000 * 100;
+                              //usleep(1000 * 50); 
+                            \Swoole\Coroutine::sleep(0.1);
               }
            }
 
