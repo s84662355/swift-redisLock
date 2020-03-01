@@ -56,6 +56,8 @@ class RedisLock{
 
        local time_out = tonumber(keydata[1])
 
+       local data_client_name =  keydata[2]
+
        if cur_timestamp >  time_out then  
         
 
@@ -72,6 +74,16 @@ class RedisLock{
 
            return 0
        end 
+
+       if data_client_name == client_name then
+                 
+                 return 1
+       end
+
+
+
+
+
        return 0  
     end  
 
