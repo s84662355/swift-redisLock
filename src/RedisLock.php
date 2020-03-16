@@ -75,14 +75,7 @@ class RedisLock{
            return 0
        end 
 
-       if data_client_name == client_name then
-                 
-                 return 1
-       end
-
-
-
-
+   
 
        return 0  
     end  
@@ -128,6 +121,10 @@ script;
 
     local keydata = string.split(result ,'???')
 
+    if client_name  == keydata[2] and  redis.call('DEL',key)  then 
+
+          return 1
+     end
  
 
     return 0
