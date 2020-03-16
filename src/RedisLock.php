@@ -75,7 +75,10 @@ class RedisLock{
            return 0
        end 
 
-   
+       if data_client_name == client_name then
+                 
+                 return 1
+       end
 
        return 0  
     end  
@@ -145,7 +148,8 @@ script;
         $self->client_number = Random::str( 10 ).microtime();
         return $self;
     }
-
+    
+     
 
 
 
