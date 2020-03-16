@@ -128,12 +128,7 @@ script;
 
     local keydata = string.split(result ,'???')
 
-     
-
-    if client_name  == keydata[2] and  redis.call('DEL',key)  then 
-
-         return 1
-    end
+ 
 
     return 0
      
